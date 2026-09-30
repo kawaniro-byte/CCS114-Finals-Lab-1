@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Collector Card Maker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Collector Card Maker</h1>
+  <p>Fill in your details, press Show my info, and JavaScript turns them into your own collectible card.</p>
+</header>
+
+<main>
+<form id="infoForm" autocomplete="off" novalidate>
+  <div class="field"><label for="fullName">Full name</label><input class="info" type="text" id="fullName" placeholder="Juan Santos"></div>
+  <div class="field"><label for="nickname">Nickname</label><input class="info" type="text" id="nickname" placeholder="Jun"></div>
+  <div class="field"><label for="email">Email address</label><input class="info" type="email" id="email" placeholder="Juan@gmail.com"></div>
+  <div class="field"><label for="phone">Phone number</label><input class="info" type="tel" id="phone" placeholder="0917 999 9999"></div>
+  <div class="field"><label for="age">Age</label><input class="info" type="number" id="age" min="1" max="120" placeholder="20"></div>
+  <div class="field"><label for="birthday">Birthday</label><input class="info" type="date" id="birthday"></div>
+  <div class="field"><label for="hometown">Hometown</label><input class="info" type="text" id="hometown" placeholder="Cabuyao, Laguna"></div>
+  <div class="field"><label for="website">Website</label><input class="info" type="url" id="website" placeholder="https://myportfolio"></div>
+  <div class="field"><label for="color">Favorite color</label><input class="info" type="color" id="color" value="#7c5cff"></div>
+  <div class="field"><label for="food">Favorite food</label>
+    <select class="info" id="food">
+      <option value="">Choose one</option><option>Adobo</option><option>Sinigang</option><option>Pizza</option>
+      <option>Ramen</option><option>Halo-halo</option><option>Fried chicken</option>
+    </select></div>
+  <div class="field wide"><fieldset><legend>Main hobby</legend>
+    <div class="radios">
+      <label><input type="radio" name="hobby" value="Gaming"> Gaming</label>
+      <label><input type="radio" name="hobby" value="Music"> Music</label>
+      <label><input type="radio" name="hobby" value="Art"> Art</label>
+      <label><input type="radio" name="hobby" value="Sports"> Sports</label>
+      <label><input type="radio" name="hobby" value="Coding"> Coding</label>
+    </div></fieldset></div>
+  <div class="field wide"><label for="power">Confidence level: <output id="powerOut">5</output> / 10</label>
+    <input class="info" type="range" id="power" min="1" max="10" value="5"></div>
+  <div class="field wide"><label for="bio">Card motto</label><textarea class="info" id="bio" rows="2" maxlength="90" placeholder="One line about you"></textarea></div>
+  <div class="field wide check"><input class="info" type="checkbox" id="updates"><label for="updates" style="color:var(--ink);font-weight:500">Send me updates about new cards</label></div>
+  <p id="error" class="wide field" role="alert"></p>
+  <div class="buttons">
+    <button type="button" id="showBtn">Show my info</button>
+    <button type="button" id="resetBtn">Clear everything</button>
+  </div>
+</form>
+
+<aside>
+  <article class="card" id="card" aria-live="polite">
+    <div class="card-top"><h2 id="cardName">Your name here</h2><span class="power" id="cardPower">Lv 5</span></div>
+    <div class="portrait" id="portrait">?</div>
+    <p class="tag" id="cardTag">Hobby and hometown appear here</p>
+    <dl id="cardStats"><dt>Age</dt><dd class="stat empty">—</dd><dt>Food</dt><dd class="stat empty">—</dd></dl>
+    <p class="bio" id="cardBio"></p>
+  </article>
+
+  <section class="summary" aria-labelledby="sumTitle">
+    <h2 id="sumTitle">Full summary</h2>
+    <p class="placeholder" id="placeholder">Nothing shown yet. Fill the form and press Show my info.</p>
+    <dl id="summaryList" hidden></dl>
+    <p class="note" id="note"></p>
+  </section>
+</aside>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
